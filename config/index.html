@@ -1,0 +1,71 @@
+<html>
+  <head>
+    <title>Jira WIP plugin</title>
+    <link rel="stylesheet" href="config.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.1/css/materialize.min.css">
+
+    <script src="../libraries/local-storage.js" type="text/javascript"></script>
+    <script src="config.js" type="text/javascript"></script>
+  </head>
+  <body>
+    <div id='content'>
+      <div id="general" class="col s12">
+        <div class="row">
+          <div class="col s8 offset-s2">
+            <div class="card">
+              <div class="card-content">
+                <h4 class="left-align">Plugin configuration</h4>
+                <p>
+                  List the columns that are part of the WIP. Write the name of each column and use commas (,) to split them.
+                </p>
+                <p>&nbsp;</p>
+                <p>
+                  <label for="wip-columns">WIP columns</label>
+                  <textarea name="" id="wip-columns" cols="50" rows="10">DEVELOPMENT, CODE REVIEW, READY TO TEST, TESTING, READY TO DEPLOY</textarea>
+                </p>
+                <p>&nbsp;</p>
+                <p>
+                  <label for="wip-limit">WIP limit</label>
+                  <input type="text" id="wip-limit" value="8" />
+                </p>
+                <p>&nbsp;</p>
+                <p>
+                  <label for="days-to-alert-warning">Set the warning flag when the card is in the same lane for how many days?</label>
+                  <input type="text" id="days-to-alert-warning" value="4" />
+                </p>
+                <p>&nbsp;</p>
+                <p>
+                  <label for="days-to-alert-danger">Set the danger flag when the card is in the same lane for how many days?</label>
+                  <input type="text" id="days-to-alert-danger" value="7" />
+                </p>
+                <p>&nbsp;</p>
+                <p>
+                  <label for="warning-color">Warning color</label>
+                  <input type="text" id="warning-color" value="#ffff95" />
+                </p>
+                <p>&nbsp;</p>
+                <p>
+                  <label for="danger-color">Danger color</label>
+                  <input type="text" id="danger-color" value="#f9c6c6" />
+                </p>
+                <p>&nbsp;</p>
+                <p>
+                  <label for="success-color">Success color</label>
+                  <input type="text" id="success-color" value="#0c770c" />
+                </p>
+
+                <p>&nbsp;</p>
+
+                <p class="right-align">
+                  <button id="save" class="waves-effect waves-light btn">
+                    Save
+                  </button>
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

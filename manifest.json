@@ -1,0 +1,28 @@
+{
+  "manifest_version": 2,
+  "name": "WIP status on Jira",
+  "version": "0.1",
+  "permissions": [
+    "tabs",
+    "storage"
+  ],
+  "browser_action": {
+    "default_icon": "images/icon.png",
+    "default_title": "WIP status on Jira"
+  },
+  "content_scripts": [
+    {
+      "matches": ["https://cxdigital.atlassian.net/secure/RapidBoard.jspa*"],
+      "js": ["content.js"],
+      "run_at" : "document_end"
+    }
+  ],
+  "background": {
+    "scripts": [
+      "background.js",
+      "libraries/local-storage.js"
+    ],
+    "persistent": false
+  },
+  "options_page": "config/index.html"
+}
