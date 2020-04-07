@@ -14,7 +14,7 @@
     {
       "matches": ["https://cxdigital.atlassian.net/secure/RapidBoard.jspa*"],
       "js": [
-        "libraries/storage.js", 
+        "libraries/storage.js",
         "libraries/jira.js",
         "content.js"
       ],
@@ -23,8 +23,7 @@
   ],
   "background": {
     "scripts": [
-      "background.js",
-      "libraries/local-storage.js"
+      "background.js"
     ],
     "persistent": false
   },

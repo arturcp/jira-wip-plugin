@@ -1,27 +1,21 @@
-var ids = [
-  'wip-columns',
-  'wip-limit',
-  'days-to-alert-warning',
-  'days-to-alert-danger',
-  'warning-color',
-  'danger-color',
-  'success-color'
-];
-
 function saveOptions() {
-  ids.forEach(function(id) {
-    LocalStorage.write(id, document.getElementById(id).value);
+  keys = {}
+  Storage.keys.forEach(function(id) {
+    keys[id] = document.getElementById(id).value;
   });
 
-  alert('Data saved.');
+  chrome.storage.local.set(keys, function() {
+    alert('Data saved.');
+  });
 }
 
 function restoreOptions() {
-  ids.forEach(function(id) {
-    var value = LocalStorage.read(id);
-    if (value) {
-      document.getElementById(id).value = value;
-    }
+  chrome.storage.local.get(Storage.keys, function(result) {
+    Storage.keys.forEach(function(key) {
+      if (result[key]) {
+        document.getElementById(key).value = result[key];
+      }
+    });
   });
 }
 

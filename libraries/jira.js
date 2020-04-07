@@ -1,5 +1,5 @@
-var Jira = function(items) {
-  this.options = Storage.data(items);
+var Jira = function(options) {
+  this.options = options;
   this.wipCount = this._countWipItems();
   this.laneIds = this._laneIds();
 };
@@ -7,11 +7,11 @@ var Jira = function(items) {
 var fn = Jira.prototype;
 
 fn.showWipCounter = function() {
-  if (!document.querySelector('#wip-counter')) {
+  if (!document.querySelector('#wipCounter')) {
     var header = document.querySelector('#ghx-pool-column'),
         wipContainer = document.createElement('div');
 
-    wipContainer.setAttribute('id', 'wip-counter');
+    wipContainer.setAttribute('id', 'wipCounter');
     wipContainer.innerText = 'Work in progress: ' + this.wipCount;
     wipContainer.style.width = '100%';
     wipContainer.style.textAlign = 'center';
@@ -20,8 +20,6 @@ fn.showWipCounter = function() {
     var color = this.options.successColor;
     if (this.wipCount > this.options.wipLimit) {
       color = this.options.dangerColor;
-    } else if (this.wipCount > this.options.wipLimit - 2) {
-      color = this.options.warningColor;
     }
 
     wipContainer.style.border = '1px dashed ' + color;
